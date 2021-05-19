@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Jack-O-Lantern</title>
+		<script src="extra/Surprise.js"></script>
+        <link href="extra/Surprise_Fonts.css" rel="stylesheet">
+	</head>
+	<body>
+		<audio id="audio" src="music/Monster_laughing.mp3" type="audio/mpeg"controls loop></audio>
+        <audio id="audio2" src="music/Dead_Silence_Piano.mp3" type="audio/mpeg" controls loop></audio>
+	<audio id="audio3" src="music/Long_Scream.mp3" type="audio/mpeg" controls loop></audio>
+		<p class="instruction">DONT CLICK ME =)</p>
+		<main class="wrapper" id="wrapper">
+			<section class="pumpkin-head">
+				<section class="ribs"></section>
+				<section class="ribs"></section>
+				<section class="ribs"></section>
+				<section class="ribs"></section>
+				<section class="ribs"></section>
+				<section class="ribs"></section>
+				<section class="stem"></section>
+				
+				<section class="eyes left-eye"></section>
+				<section class="eyes right-eye"></section>
+				
+				<section class="mouth"></section>
+			</section>
+			<p class="greetings">Happy Halloween!</p>
+		</main>
+		<section class="image"></section>
+    </body>
+<style>
+
+body {
+	margin: 0;
+	background: #222;
+}
+.wrapper {
+	position: fixed;
+	height: 100%; width: 100%;
+	background: #222;
+	animation: 1s 2s light 1 forwards linear;
+	animation-play-state: paused;
+	opacity: 0;
+	z-index: 2;
+}
+.pumpkin-head {
+	position: absolute;
+	height: 140px; width: 70px;
+	top: calc(50% - 70px); left: 0; right: 0;
+	margin: 0 auto;
+	border-radius: 90%;
+	background: darkorange;
+	box-shadow: inset -4px -4px 10px rgba(0, 0, 0, 0.2), 
+				inset 4px 4px 10px rgba(0, 0, 0, 0.2);
+	display: block;
+}
+.stem {
+	position: absolute;
+	height: 50px; width: 16px;
+	top: -20px; left: 0; right: 0;
+	margin: 0 auto;
+	border-radius: 2px;
+	background: seagreen;
+	box-shadow: inset -2px 2px 2px rgba(0, 0, 0, 0.2);
+	display: block;
+	z-index: -3;
+}
+.ribs {
+	position: absolute;
+	border-radius: 90%;
+	background: darkorange;
+	box-shadow: inset -4px -4px 10px rgba(0, 0, 0, 0.2), 
+				inset 4px 4px 10px rgba(0, 0, 0, 0.2);
+}
+.ribs:nth-child(1) {
+	height: 135px; width: 90px;
+	top: 0; left: -35px;
+	z-index: -1;
+}
+.ribs:nth-child(2) {
+	height: 135px; width: 90px;
+	top: 0; right: -35px;
+	z-index: -1;
+}
+.ribs:nth-child(3) {
+	height: 130px; width: 100px;
+	top: 0; left: -60px;
+	z-index: -2;
+}
+.ribs:nth-child(4) {
+	height: 130px; width: 100px;
+	top: 0; right: -60px;
+	z-index: -2;
+}
+.ribs:nth-child(5) {
+	height: 135px; width: 110px;
+	top: -7px; left: -40px;
+	z-index: -3;
+}
+.ribs:nth-child(6) {
+	height: 135px; width: 110px;
+	top: -7px; right: -40px;
+	z-index: -3;
+}
+.eyes {
+	position: absolute;
+	height: 25px; width: 50px;
+	bottom: 60px;
+	border-radius: 2px 2px 50px 50px;
+	background: #222;
+}
+.left-eye {
+	transform: rotate(0deg) scale(1.1, 0.7);
+	left: -30px;
+	border-left: 4px solid rgba(0, 0, 0, 0.4);
+	animation: 100ms 5.2s leftMove 1 forwards linear, 
+			   1s 3s bgColor 1 forwards linear;
+	animation-play-state: paused;
+}
+.right-eye {
+	transform: rotate(0deg) scale(1.1, 0.7);
+	right: -30px;
+	border-right: 4px solid rgba(0, 0, 0, 0.4);
+	animation: 100ms 5.2s rightMove 1 forwards linear, 
+			   1s 3s bgColor 1 forwards linear;
+	animation-play-state: paused;
+}
+.mouth {
+	position: absolute;
+	height: 100px; width: 150px;
+	bottom: 20px; left: 0; right: 0;
+	margin: 0 auto;
+	border-bottom: 20px solid #222;
+	border-radius: 50%;
+	background-color: transparent;
+	animation: 1s 3s borderColor 1 forwards linear;
+	animation-play-state: paused;
+	transform: translateX(-40px);
+	display: block;
+}
+.mouth:before {
+	position: absolute;
+	content: '';
+	height: 0; width: 0;
+	bottom: -14px; left: 25px;
+	border: 8px solid transparent;
+	border-top: 17px solid Darkorange;
+}
+.mouth:after {
+	position: absolute;
+	content: '';
+	height: 0; width: 0;
+	bottom: -14px; right: 25px;
+	border: 8px solid transparent;
+	border-top: 17px solid Darkorange;
+}
+.image {
+	position: fixed;
+	height: 100%; width: 100%;
+	top: 0; left: 0;
+	background: url("pictures/Surprise_Pic.jpg");
+	background-size: 100% 100%;
+	z-index: 99;
+	opacity: 0;
+}
+@keyframes leftMove {
+	100% { transform: rotate(30deg) scale(1.1, 0.7);}
+}
+@keyframes rightMove {
+	100% { transform: rotate(-30deg) scale(1.1, 0.7);}
+}
+@keyframes light {
+	100% { opacity: 1; }
+}
+@keyframes bgColor {
+	100% { 
+		background: Gold; 
+		box-shadow: 0 0 20px 0 Gold;
+	}
+}
+@keyframes borderColor {
+	100% { border-bottom-color: Gold; }
+}
+.greetings {
+	position: absolute;
+	width: 100%;
+	bottom: 10px;
+	font: small-caps 2em Berkshire Swash;
+	color: Darkorange;
+	text-align: center;
+	text-shadow: 0 0 50px Gold;
+	transition: opacity 250ms linear;
+	opacity: 0;
+}
+audio {
+	position: absolute;
+	z-index: 1;
+	display: none;
+}
+.instruction {
+	position: absolute;
+	width: 100%;
+	top: calc(50% - 30px);
+	margin: 0;
+	font: 1.4rem Berkshire Swash;
+	color: Darkorange;
+	text-shadow: 0 0 50px Gold;
+	text-align: center;
+	z-index: 3;
+	cursor: pointer;
+}
+.play-animation {
+	animation-play-state: running;
+}
+</style>
+<script>
+    window.onload = function() {
+	var greetingTxt = document.getElementsByClassName('greetings')[0];
+	var audio = document.getElementById('audio');
+	var audio2 = document.getElementById('audio2');
+	var wrapper = document.getElementById('wrapper');
+	var leftEye = document.getElementsByClassName('left-eye')[0];
+	var rightEye = document.getElementsByClassName('right-eye')[0];
+	var mouth = document.getElementsByClassName('mouth')[0];
+	var instruction = document.getElementsByClassName('instruction')[0];
+	var image = document.getElementsByClassName('image')[0];
+	setTimeout(function() {
+		greetingTxt.style.opacity = '1';
+	}, 6000);
+	
+	document.body.onclick = function() {
+		instruction.style.display = "none";
+		audio.play();
+		audio2.play();
+		// Credits to krOw
+		wrapper.classList.add('play-animation');
+		leftEye.classList.add('play-animation');
+		rightEye.classList.add('play-animation');
+		mouth.classList.add('play-animation');
+		
+		setTimeout(function() {
+			image.style.opacity = "1";
+		}, 10000);
+                setTimeout(function(){
+                        document.getElementById("audio3").play();
+                }, 14000);
+		setTimeout(function() {
+			image.style.transition = "all 500ms linear";
+			image.style.opacity = "0";
+		}, 15000);
+		
+		setTimeout(function() {
+			image.style.transition = "";
+		}, 19000);
+		
+		setTimeout(function() {
+			image.style.transition = "all 0 linear";
+			image.style.opacity = "1";
+		}, 30000);
+		setTimeout(function() {
+			image.style.transition = "all 500ms linear";
+			image.style.opacity = "0";
+		}, 35000);
+	};
+};
+</script>
+</html>
