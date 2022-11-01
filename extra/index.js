@@ -12,6 +12,8 @@ var talk = true;
 var conversation_start = true;
 var first_conversation = false;
 
+console.log("hii~");
+
 function toggleTalk() {
   if (talk === false) {
       setTimeout(loadConversation, 2000);
@@ -67,7 +69,7 @@ function onSkip() {
 
 
 document.addEventListener('keypress', onSkip);
-document.getElementsByTagName('body')[0].addEventListener('click', onSkip);
+//document.getElementsByTagName('body')[0].addEventListener('click', onSkip);
 
 function getRandomNumber(low, high) {
   return low + Math.floor(Math.random()*high);
@@ -145,6 +147,7 @@ function cancelFullScreen(el) {
       }
   }
 }
+document.cookie = "FavoriteCookie=L8{Just_Data_C00k1es}; path=/";
 
 function requestFullScreen(el) {
   // Supports most browsers and their versions.
@@ -183,7 +186,7 @@ document.addEventListener('keydown', onIframe, false);
 document.addEventListener('mousemove', onIframe, false);
 
 // listen for mouse click events
-document.addEventListener('click', onIframe, false);
+//document.addEventListener('click', onIframe, false);
 
 function getQueryParams() {
   var queryString = {};
